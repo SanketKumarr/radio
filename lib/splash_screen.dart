@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:radio_lnct/bottom_app_bar.dart';
 
 class MySplash extends StatefulWidget {
@@ -9,8 +10,6 @@ class MySplash extends StatefulWidget {
 }
 
 class _MySplashState extends State<MySplash> {
-
-
   @override
   void initState() {
     super.initState();
@@ -18,7 +17,7 @@ class _MySplashState extends State<MySplash> {
   }
 
   void _navigateToHome() async {
-    await Future.delayed(const Duration(seconds: 3), () {});
+    await Future.delayed(const Duration(seconds: 6), () {});
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -31,15 +30,23 @@ class _MySplashState extends State<MySplash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              Image.asset(
+        child: Stack(
+          alignment: AlignmentDirectional.center,
+          children: [
+            Center(
+              child: Image.asset(
                 "assets/images/lnct_radio.png",
-                // fit: BoxFit.cover,
+                height: 130,
               ),
-            ],
-          ),
+            ),
+            Positioned(
+              bottom: 1,
+              child: Lottie.asset(
+                "assets/videos/loading_1.json",
+                height: 120,
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -7,8 +7,6 @@ import 'package:radio_lnct/BottomNavigationBar/user_profile_tab.dart';
 
 import 'BottomNavigationBar/news_tab.dart';
 
-
-
 int currentIndex = 0;
 final List<Widget> tabs = [
   const HomeTab(),
@@ -53,7 +51,6 @@ class _StructureState extends State<Structure> {
           setState(() {
             currentScreen = LiveTab();
             currentIndex = 3;
-
           });
         },
         child: const Padding(
