@@ -35,6 +35,14 @@ class TopPicks extends StatelessWidget {
                       width: 200,
                       height: 110,
                       decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
                         borderRadius:
                         const BorderRadius.all(Radius.circular(10)),
                         border: Border.all(

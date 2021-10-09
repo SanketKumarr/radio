@@ -7,8 +7,6 @@ import 'package:radio_lnct/widgets/radio_profile/contents.dart';
 import 'package:radio_lnct/widgets/radio_profile/events.dart';
 import 'package:radio_lnct/widgets/radio_profile/live_sessions.dart';
 
-
-
 class RadioProfile extends StatelessWidget {
   const RadioProfile({Key? key}) : super(key: key);
 
@@ -93,7 +91,7 @@ class RadioProfile extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 150,
-                  color: Colors.grey,
+                  color: Colors.orangeAccent[200],
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -101,6 +99,8 @@ class RadioProfile extends StatelessWidget {
                       Text(
                         "Zindagi muskurayegi",
                         style: TextStyle(
+                          fontFamily: "ProductSans",
+                          fontWeight: FontWeight.w300,
                           fontSize: 15,
                           color: Color(0xff242a54),
                         ),
@@ -111,6 +111,8 @@ class RadioProfile extends StatelessWidget {
                       Text(
                         "1.0.1",
                         style: TextStyle(
+                          fontFamily: "ProductSans",
+                          fontWeight: FontWeight.w300,
                           fontSize: 15,
                           color: Color(0xff242a54),
                         ),

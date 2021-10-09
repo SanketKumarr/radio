@@ -35,6 +35,14 @@ class Contents extends StatelessWidget {
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.deepOrange.shade100,
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0,
+                        offset: Offset(5, 3),
+                      ),
+                    ],
                     border: Border.all(
                       color: Colors.orange,
                       width: 2,
@@ -48,6 +56,15 @@ class Contents extends StatelessWidget {
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
+                    // color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.deepOrange.shade100,
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0,
+                        offset: Offset(5, 3),
+                      ),
+                    ],
                     border: Border.all(
                       color: Colors.orange,
                       width: 2,
@@ -61,6 +78,14 @@ class Contents extends StatelessWidget {
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.deepOrange.shade100,
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0,
+                        offset: Offset(5, 3),
+                      ),
+                    ],
                     border: Border.all(
                       color: Colors.orange,
                       width: 2,
@@ -74,6 +99,14 @@ class Contents extends StatelessWidget {
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.deepOrange.shade100,
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0,
+                        offset: Offset(5, 3),
+                      ),
+                    ],
                     border: Border.all(
                       color: Colors.orange,
                       width: 2,

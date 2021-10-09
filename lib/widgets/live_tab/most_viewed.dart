@@ -15,7 +15,6 @@ class MostViewed extends StatelessWidget {
             style: TextStyle(
               fontFamily: "ProductSans",
               fontWeight: FontWeight.w400,
-
               color: Color(0xff242a54),
               fontSize: 25,
             ),
@@ -38,6 +37,14 @@ class MostViewed extends StatelessWidget {
                     width: 220,
                     height: 110,
                     decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.deepOrange.shade100,
+                          blurRadius: 5.0,
+                          spreadRadius: 1.0,
+                          offset: Offset(5, 3),
+                        ),
+                      ],
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                       border: Border.all(
                         color: Colors.transparent,
@@ -63,7 +70,6 @@ class MostViewed extends StatelessWidget {
                         "A",
                         style: TextStyle(
                           fontFamily: "ProductSans",
-
                           fontWeight: FontWeight.w500,
                           fontSize: 25,
                           color: Colors.white,
@@ -83,6 +89,14 @@ class MostViewed extends StatelessWidget {
                     width: 220,
                     height: 110,
                     decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.deepOrange.shade100,
+                          blurRadius: 5.0,
+                          spreadRadius: 1.0,
+                          offset: Offset(5, 3),
+                        ),
+                      ],
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                       border: Border.all(
                         color: Colors.transparent,
@@ -108,7 +122,6 @@ class MostViewed extends StatelessWidget {
                         "B",
                         style: TextStyle(
                           fontFamily: "ProductSans",
-
                           fontWeight: FontWeight.w500,
                           fontSize: 25,
                           color: Colors.white,

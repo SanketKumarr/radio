@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'art_and_craft.dart';
 
 class ExploreSec extends StatelessWidget {
@@ -64,6 +62,14 @@ class ExploreSec extends StatelessWidget {
                           ),
                         ),
                         decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.deepOrange.shade100,
+                              blurRadius: 5.0,
+                              spreadRadius: 1.0,
+                              offset: Offset(5, 3),
+                            ),
+                          ],
                           borderRadius: const BorderRadius.all(
                             Radius.circular(10),
                           ),
@@ -111,6 +117,14 @@ class ExploreSec extends StatelessWidget {
                         ),
                       ),
                       decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10)),
                         border: Border.all(
@@ -156,6 +170,14 @@ class ExploreSec extends StatelessWidget {
                         ),
                       ),
                       decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
                         borderRadius:
                             const BorderRadius.all(Radius.circular(10)),
                         border: Border.all(

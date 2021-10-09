@@ -83,13 +83,26 @@ class _LiveTabState extends State<LiveTab> {
                         ),
                         items: [
                           Column(
-                            children: const [
-                              CircleAvatar(
-                                radius: 40,
-                                backgroundColor: Colors.orange,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.deepOrange.shade100,
+                                      blurRadius: 5.0,
+                                      spreadRadius: 0.0,
+                                      offset: Offset(5, 3),
+                                    ),
+                                  ],
+                                ),
                                 child: CircleAvatar(
-                                  radius: 38,
-                                  backgroundColor: Colors.white,
+                                  radius: 40,
+                                  backgroundColor: Colors.orange,
+                                  child: CircleAvatar(
+                                    radius: 38,
+                                    backgroundColor: Colors.white,
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -102,13 +115,26 @@ class _LiveTabState extends State<LiveTab> {
                             ],
                           ),
                           Column(
-                            children: const [
-                              CircleAvatar(
-                                radius: 40,
-                                backgroundColor: Colors.orange,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.deepOrange.shade100,
+                                      blurRadius: 5.0,
+                                      spreadRadius: 0.0,
+                                      offset: Offset(5, 3),
+                                    ),
+                                  ],
+                                ),
                                 child: CircleAvatar(
-                                  radius: 38,
-                                  backgroundColor: Colors.white,
+                                  radius: 40,
+                                  backgroundColor: Colors.orange,
+                                  child: CircleAvatar(
+                                    radius: 38,
+                                    backgroundColor: Colors.white,
+                                  ),
                                 ),
                               ),
                               SizedBox(

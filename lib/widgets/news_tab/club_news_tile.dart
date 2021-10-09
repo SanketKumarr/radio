@@ -38,19 +38,6 @@ class ClubNewsTile extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.orange,
-                    width: 2,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20),
-                  ),
-                ),
-              ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: 10, vertical: 10),

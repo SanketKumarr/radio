@@ -13,6 +13,11 @@ class MyApp extends StatelessWidget {
       title: 'Radio',
       debugShowCheckedModeBanner: false,
       home: MySplash(),
+      // themeMode: ThemeMode.dark,
+      // theme: ThemeData(
+      //   // primaryColor: Color(0xff242a54),
+      //
+      // ),
     );
   }
 }

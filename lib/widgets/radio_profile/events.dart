@@ -13,8 +13,7 @@ class Events extends StatelessWidget {
           InkWell(
             focusColor: Colors.transparent,
             splashColor: Colors.transparent,
-            onTap: () {
-            },
+            onTap: () {},
             child: const Text(
               "Events",
               style: TextStyle(
@@ -22,7 +21,6 @@ class Events extends StatelessWidget {
                 fontSize: 22,
                 fontFamily: "ProductSans",
                 fontWeight: FontWeight.w400,
-
               ),
             ),
           ),
@@ -39,13 +37,26 @@ class Events extends StatelessWidget {
               ),
               items: [
                 Column(
-                  children: const [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.orange,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
+                      ),
                       child: CircleAvatar(
-                        radius: 38,
-                        backgroundColor: Colors.white,
+                        radius: 40,
+                        backgroundColor: Colors.orange,
+                        child: CircleAvatar(
+                          radius: 38,
+                          backgroundColor: Colors.white,
+                        ),
                       ),
                     ),
                     Padding(
@@ -55,13 +66,26 @@ class Events extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  children: const [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.orange,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
+                      ),
                       child: CircleAvatar(
-                        radius: 38,
-                        backgroundColor: Colors.white,
+                        radius: 40,
+                        backgroundColor: Colors.orange,
+                        child: CircleAvatar(
+                          radius: 38,
+                          backgroundColor: Colors.white,
+                        ),
                       ),
                     ),
                     Padding(
@@ -71,13 +95,26 @@ class Events extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  children: const [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.orange,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
+                      ),
                       child: CircleAvatar(
-                        radius: 38,
-                        backgroundColor: Colors.white,
+                        radius: 40,
+                        backgroundColor: Colors.orange,
+                        child: CircleAvatar(
+                          radius: 38,
+                          backgroundColor: Colors.white,
+                        ),
                       ),
                     ),
                     Padding(
@@ -87,13 +124,26 @@ class Events extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  children: const [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.orange,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
+                      ),
                       child: CircleAvatar(
-                        radius: 38,
-                        backgroundColor: Colors.white,
+                        radius: 40,
+                        backgroundColor: Colors.orange,
+                        child: CircleAvatar(
+                          radius: 38,
+                          backgroundColor: Colors.white,
+                        ),
                       ),
                     ),
                     Padding(
@@ -103,13 +153,26 @@ class Events extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  children: const [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.orange,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
+                      ),
                       child: CircleAvatar(
-                        radius: 38,
-                        backgroundColor: Colors.white,
+                        radius: 40,
+                        backgroundColor: Colors.orange,
+                        child: CircleAvatar(
+                          radius: 38,
+                          backgroundColor: Colors.white,
+                        ),
                       ),
                     ),
                     Padding(
@@ -119,13 +182,26 @@ class Events extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  children: const [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundColor: Colors.orange,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.deepOrange.shade100,
+                            blurRadius: 5.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(5, 3),
+                          ),
+                        ],
+                      ),
                       child: CircleAvatar(
-                        radius: 38,
-                        backgroundColor: Colors.white,
+                        radius: 40,
+                        backgroundColor: Colors.orange,
+                        child: CircleAvatar(
+                          radius: 38,
+                          backgroundColor: Colors.white,
+                        ),
                       ),
                     ),
                     Padding(
