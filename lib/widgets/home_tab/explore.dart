@@ -64,6 +64,7 @@ class ExploreSec extends StatelessWidget {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
+                              // color: Color(0x4D000000),
                               color: Colors.deepOrange.shade100,
                               blurRadius: 5.0,
                               spreadRadius: 1.0,
@@ -119,6 +120,7 @@ class ExploreSec extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
+                            // color: Color(0x4D000000),
                             color: Colors.deepOrange.shade100,
                             blurRadius: 5.0,
                             spreadRadius: 1.0,
@@ -172,6 +174,7 @@ class ExploreSec extends StatelessWidget {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
+                            // color: Color(0x4D000000),
                             color: Colors.deepOrange.shade100,
                             blurRadius: 5.0,
                             spreadRadius: 1.0,

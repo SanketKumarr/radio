@@ -146,15 +146,27 @@ class CreatorProfile extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: PostSec(),
+                child: const PostSec(
+                  postImage: "assets/images/live_cover_1.jpg",
+                  caption:
+                  'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-                child: PostSec(),
+                child: const PostSec(
+                  postImage: "assets/images/live_cover_1.jpg",
+                  caption:
+                  'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-                child: PostSec(),
+                child: const PostSec(
+                  postImage: "assets/images/live_cover_1.jpg",
+                  caption:
+                  'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
+                ),
               ),
             ],
           ),

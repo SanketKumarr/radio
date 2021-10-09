@@ -73,9 +73,22 @@ class HomeTab extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const PostSec(),
-                    const PostSec(),
-                    const PostSec(),
+                    const PostSec(
+                      postImage: "assets/images/live_cover_1.jpg",
+                      caption:
+                          'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
+                    ),
+                    const PostSec(
+                      postImage: "assets/images/live_cover_1.jpg",
+                      caption:
+                      'The suffering is an embittered aspect.',
+                    ),
+                    const PostSec(
+                      postImage: "assets/images/live_cover_1.jpg",
+                      caption:
+                      'Devirginatos volare in cirpi! The suffering is an embittered aspect.',
+                    ),
+
                   ],
                 ),
               ),
