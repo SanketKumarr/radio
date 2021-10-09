@@ -43,6 +43,9 @@ class _LiveTabState extends State<LiveTab> {
                         child: Text(
                           "Mehfil-e-fursat",
                           style: TextStyle(
+                            fontFamily: "ProductSans",
+                            fontWeight: FontWeight.w500,
+
                             color: Colors.white,
                             fontSize: 30,
                           ),
@@ -61,6 +64,9 @@ class _LiveTabState extends State<LiveTab> {
                       const Text(
                         "Our guests",
                         style: TextStyle(
+                          fontFamily: "ProductSans",
+                          fontWeight: FontWeight.w400,
+
                           color: Color(0xff242a54),
                           fontSize: 25,
                         ),
@@ -91,6 +97,7 @@ class _LiveTabState extends State<LiveTab> {
                               ),
                               Text(
                                 "A",
+
                               ),
                             ],
                           ),
@@ -188,6 +195,10 @@ class _LiveTabState extends State<LiveTab> {
                       const Text(
                         "Interviews",
                         style: TextStyle(
+                          fontFamily: "ProductSans",
+                          fontWeight: FontWeight.w400,
+
+
                           color: Color(0xff242a54),
                           fontSize: 25,
                         ),

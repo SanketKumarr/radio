@@ -13,7 +13,12 @@ class InterviewTile extends StatefulWidget {
   final imageAsset;
   final audioAsset;
 
-  const InterviewTile({Key? key, required this.title, required this.host, required this.imageAsset, required this.audioAsset})
+  const InterviewTile(
+      {Key? key,
+      required this.title,
+      required this.host,
+      required this.imageAsset,
+      required this.audioAsset})
       : super(key: key);
 
   @override
@@ -45,6 +50,7 @@ class _InterviewTileState extends State<InterviewTile> {
             child: Text(
               widget.title,
               style: TextStyle(
+                fontFamily: "ProductSans",
                 color: Color(0xff242a54),
                 fontSize: 18,
               ),
@@ -54,6 +60,10 @@ class _InterviewTileState extends State<InterviewTile> {
             offset: const Offset(-17, 0),
             child: Text(
               widget.host,
+              style: TextStyle(
+                fontFamily: "ProductSans",
+                fontWeight: FontWeight.w300,
+              ),
             ),
           ),
         ),

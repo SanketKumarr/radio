@@ -19,7 +19,10 @@ class Events extends StatelessWidget {
               "Events",
               style: TextStyle(
                 color: Color(0xff242a54),
-                fontSize: 25,
+                fontSize: 22,
+                fontFamily: "ProductSans",
+                fontWeight: FontWeight.w400,
+
               ),
             ),
           ),

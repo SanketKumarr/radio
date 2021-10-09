@@ -15,9 +15,10 @@ class ExploreSec extends StatelessWidget {
         const Text(
           "Explore",
           style: TextStyle(
+            fontFamily: "ProductSans",
             color: Color(0xff242a54),
-            fontSize: 25,
-            fontWeight: FontWeight.w500,
+            fontSize: 23,
+            fontWeight: FontWeight.w400,
           ),
         ),
         Padding(
@@ -55,6 +56,7 @@ class ExploreSec extends StatelessWidget {
                           child: Text(
                             "Art & Craft",
                             style: TextStyle(
+                              fontFamily: "ProductSans",
                               fontWeight: FontWeight.w500,
                               fontSize: 25,
                               color: Colors.white,
@@ -101,6 +103,7 @@ class ExploreSec extends StatelessWidget {
                         child: Text(
                           "Song",
                           style: TextStyle(
+                            fontFamily: "ProductSans",
                             fontWeight: FontWeight.w500,
                             fontSize: 25,
                             color: Colors.white,
@@ -145,6 +148,7 @@ class ExploreSec extends StatelessWidget {
                         child: Text(
                           "Dance",
                           style: TextStyle(
+                            fontFamily: "ProductSans",
                             fontWeight: FontWeight.w500,
                             fontSize: 25,
                             color: Colors.white,

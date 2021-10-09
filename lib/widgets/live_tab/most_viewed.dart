@@ -13,6 +13,9 @@ class MostViewed extends StatelessWidget {
           const Text(
             "Most Viewed",
             style: TextStyle(
+              fontFamily: "ProductSans",
+              fontWeight: FontWeight.w400,
+
               color: Color(0xff242a54),
               fontSize: 25,
             ),
@@ -59,6 +62,8 @@ class MostViewed extends StatelessWidget {
                       child: Text(
                         "A",
                         style: TextStyle(
+                          fontFamily: "ProductSans",
+
                           fontWeight: FontWeight.w500,
                           fontSize: 25,
                           color: Colors.white,
@@ -102,6 +107,8 @@ class MostViewed extends StatelessWidget {
                       child: Text(
                         "B",
                         style: TextStyle(
+                          fontFamily: "ProductSans",
+
                           fontWeight: FontWeight.w500,
                           fontSize: 25,
                           color: Colors.white,

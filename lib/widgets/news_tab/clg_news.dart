@@ -14,9 +14,11 @@ class CollegeNews extends StatelessWidget {
           const Text(
             "College",
             style: TextStyle(
+              fontFamily: "ProductSans",
+
               color: Color(0xff242a54),
-              fontSize: 30,
-              fontWeight: FontWeight.w500,
+              fontSize: 23,
+              fontWeight: FontWeight.w400,
             ),
           ),
           Padding(

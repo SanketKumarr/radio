@@ -46,6 +46,9 @@ class RadioProfile extends StatelessWidget {
                         const Text(
                           "RADIO",
                           style: TextStyle(
+                            fontFamily: "ProductSans",
+                            fontWeight: FontWeight.w500,
+
                             color: Colors.white,
                             // fontWeight: FontWeight.w600,
                             fontSize: 40,
@@ -66,11 +69,11 @@ class RadioProfile extends StatelessWidget {
                 child: ContentCreators(),
               ),
               const Padding(
-                padding: EdgeInsets.only(top: 30),
+                padding: EdgeInsets.only(top: 40),
                 child: AboutUs(),
               ),
               const Padding(
-                padding: EdgeInsets.only(top: 30),
+                padding: EdgeInsets.only(top: 45),
                 child: LiveSessions(),
               ),
               const Padding(
@@ -78,7 +81,7 @@ class RadioProfile extends StatelessWidget {
                 child: Contents(),
               ),
               const Padding(
-                padding: EdgeInsets.only(top: 40),
+                padding: EdgeInsets.only(top: 50),
                 child: Events(),
               ),
               const Padding(

@@ -15,8 +15,11 @@ class ContactUs extends StatelessWidget {
           Text(
             "Contact us",
             style: TextStyle(
+              fontFamily: "ProductSans",
+              fontWeight: FontWeight.w400,
+
               color: Color(0xff242a54),
-              fontSize: 25,
+              fontSize: 22,
             ),
           ),
           SizedBox(
@@ -43,6 +46,9 @@ class ContactUs extends StatelessWidget {
                         style: TextStyle(
                           color: Color(0xff242a54),
                           fontSize: 18,
+                          fontFamily: "ProductSans",
+                          fontWeight: FontWeight.w300,
+
                         ),
                       ),
                     ],
@@ -68,6 +74,9 @@ class ContactUs extends StatelessWidget {
                         style: TextStyle(
                           color: Color(0xff242a54),
                           fontSize: 18,
+                          fontFamily: "ProductSans",
+                          fontWeight: FontWeight.w300,
+
                         ),
                       ),
                     ],

@@ -12,8 +12,11 @@ class Contents extends StatelessWidget {
           const Text(
             "Contents",
             style: TextStyle(
+              fontFamily: "ProductSans",
+              fontWeight: FontWeight.w400,
+
               color: Color(0xff242a54),
-              fontSize: 25,
+              fontSize: 22,
             ),
           ),
           const SizedBox(

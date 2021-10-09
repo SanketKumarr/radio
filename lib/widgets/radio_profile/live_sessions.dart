@@ -14,7 +14,10 @@ class LiveSessions extends StatelessWidget {
             "Live sessions",
             style: TextStyle(
               color: Color(0xff242a54),
-              fontSize: 25,
+              fontSize: 22,
+              fontFamily: "ProductSans",
+              fontWeight: FontWeight.w400,
+
             ),
           ),
           Padding(
@@ -23,8 +26,8 @@ class LiveSessions extends StatelessWidget {
               options: CarouselOptions(
                 height: 150,
                 viewportFraction: 0.7,
-                enableInfiniteScroll:
-                true, // Fixme: to hide whitespace at the end.
+                enableInfiniteScroll: true,
+                // Fixme: to hide whitespace at the end.
                 // reverse: false,
                 autoPlay: true,
                 scrollDirection: Axis.horizontal,
@@ -33,8 +36,7 @@ class LiveSessions extends StatelessWidget {
                 Transform.translate(
                   offset: Offset(-50, 0),
                   child: InkWell(
-                    onTap: () {
-                    },
+                    onTap: () {},
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -42,23 +44,37 @@ class LiveSessions extends StatelessWidget {
                           width: 220,
                           height: 110,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(10),
+                            ),
                             border: Border.all(
-                              color: Colors.orange,
+                              color: Colors.transparent,
                               width: 2,
                             ),
-                            // image: DecorationImage(
-                            //   image: AssetImage(""),
+                            // color: Colors.,
+                            gradient: const LinearGradient(
+                              // begin: Alignment.centerRight,
+                              // end: Alignment.topLeft,
+                              colors: [
+                                Color(0xffa77ab1),
+                                Color(0xff747ecc),
+                              ],
+                            ),
+                            // image: const DecorationImage(
+                            //   image: AssetImage("assets/images/Home tab/art.jpg"),
                             //   fit: BoxFit.cover,
                             // ),
                           ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 8),
-                          child: Text(
-                            "A",
-                            style:
-                            TextStyle(color: Color(0xff242a54), fontSize: 15),
+                          child:  Padding(
+                            padding: EdgeInsets.only(top: 75, left: 5),
+                            child: Text(
+                              "A",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 25,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ),
                       ],

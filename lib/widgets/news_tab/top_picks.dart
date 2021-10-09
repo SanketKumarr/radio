@@ -13,9 +13,10 @@ class TopPicks extends StatelessWidget {
           Text(
             "Top picks",
             style: TextStyle(
+              fontFamily: "ProductSans",
               color: Color(0xff242a54),
-              fontSize: 30,
-              fontWeight: FontWeight.w500,
+              fontSize: 23,
+              fontWeight: FontWeight.w400,
             ),
           ),
           CarouselSlider(

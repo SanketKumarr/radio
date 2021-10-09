@@ -42,6 +42,8 @@ class UserProfileTab extends StatelessWidget {
                             child: Text(
                               "Sanket Kumar",
                               style: TextStyle(
+                                fontFamily: "ProductSans",
+                                fontWeight: FontWeight.w500,
                                 color: Color(0xff242a54),
                                 fontSize: 23,
                               ),
@@ -78,7 +80,7 @@ class UserProfileTab extends StatelessWidget {
                                               CupertinoIcons.heart_solid,
                                               color: Colors.red,
                                             ),
-                                            iconSize: 40,
+                                            iconSize: 35,
                                           ),
                                           const SizedBox(
                                             width: 10,
@@ -97,7 +99,7 @@ class UserProfileTab extends StatelessWidget {
                                               CupertinoIcons.bookmark_solid,
                                               color: Color(0xff242a54),
                                             ),
-                                            iconSize: 40,
+                                            iconSize: 35,
                                           ),
                                         ],
                                       ),
@@ -121,7 +123,7 @@ class UserProfileTab extends StatelessWidget {
                                               FontAwesomeIcons.cog,
                                               color: Color(0xff242a54),
                                             ),
-                                            iconSize: 40,
+                                            iconSize: 35,
                                           ),
                                           const SizedBox(
                                             width: 10,
@@ -134,7 +136,7 @@ class UserProfileTab extends StatelessWidget {
                                               FontAwesomeIcons.signOutAlt,
                                               color: Color(0xff242a54),
                                             ),
-                                            iconSize: 40,
+                                            iconSize: 35,
                                           ),
                                         ],
                                       ),

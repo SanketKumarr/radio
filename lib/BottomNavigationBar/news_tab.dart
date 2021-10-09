@@ -15,7 +15,7 @@ class NewsTab extends StatelessWidget {
         behavior: MyBehaviour(),
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(top: 40),
+            padding: const EdgeInsets.only(top: 20),
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
@@ -28,9 +28,10 @@ class NewsTab extends StatelessWidget {
                     Text(
                       "News",
                       style: TextStyle(
+                        fontFamily: "ProductSans",
                         color: Color(0xff242a54),
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     SizedBox(
@@ -42,7 +43,7 @@ class NewsTab extends StatelessWidget {
                     ),
                     CollegeNews(),
                     SizedBox(
-                      height: 40,
+                      height: 60,
                     ),
                     ClubNews(),
                     SizedBox(

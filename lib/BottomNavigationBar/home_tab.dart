@@ -3,7 +3,6 @@ import 'package:radio_lnct/radio_profile.dart';
 import 'package:radio_lnct/widgets/home_tab/explore.dart';
 import 'package:radio_lnct/widgets/home_tab/post.dart';
 
-
 class HomeTab extends StatelessWidget {
   const HomeTab({Key? key}) : super(key: key);
 
@@ -34,7 +33,7 @@ class HomeTab extends StatelessWidget {
                           radius: 13,
                           backgroundColor: Color(0xff242a54),
                           backgroundImage:
-                          AssetImage("assets/images/lnct_radio_logo.png"),
+                              AssetImage("assets/images/lnct_radio_logo.png"),
                         ),
                       ),
                     ),
@@ -43,17 +42,19 @@ class HomeTab extends StatelessWidget {
                       child: Text(
                         "Hello, Sanket",
                         style: TextStyle(
+                          fontFamily: "ProductSans",
                           color: Color(0xff242a54),
                           fontSize: 33,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                     const Text(
                       "Welcome aboard",
                       style: TextStyle(
+                        fontFamily: "ProductSans",
                         color: Color(0xff242a54),
                         fontSize: 15,
+                        fontWeight: FontWeight.w300,
                       ),
                     ),
                     const Padding(
@@ -65,9 +66,10 @@ class HomeTab extends StatelessWidget {
                       child: Text(
                         "Today's content",
                         style: TextStyle(
+                          fontFamily: "ProductSans",
                           color: Color(0xff242a54),
-                          fontSize: 25,
-                          fontWeight: FontWeight.w500,
+                          fontSize: 23,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
