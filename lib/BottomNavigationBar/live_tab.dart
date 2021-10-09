@@ -195,11 +195,29 @@ class _LiveTabState extends State<LiveTab> {
                       const SizedBox(
                         height: 30,
                       ),
-                      InterviewTile(),
+                      InterviewTile(
+                        title: 'Khushboo Gupta - SDE at Google',
+                        host: 'Hosted by Ankul Kumar Singh',
+                        audioAsset: "assets/audios/ig_audio.mp3",
+                        imageAsset: "assets/images/live_cover_1.jpg",
+
+                      ),
                       Divider(),
-                      InterviewTile(),
+                      InterviewTile(
+                        title: 'Khushboo - SDE at Google',
+                        host: 'Hosted by Ankul Kumar Singh',
+                        audioAsset: "assets/audios/ig_audio.mp3",
+                        imageAsset: "assets/images/live_cover_1.jpg",
+
+                      ),
                       Divider(),
-                      InterviewTile(),
+                      InterviewTile(
+                        title: ' Gupta - SDE at Google',
+                        host: 'Hosted Ankul Kumar Singh',
+                        audioAsset: "assets/audios/ig_audio.mp3",
+                        imageAsset: "assets/images/live_cover_1.jpg",
+
+                      ),
                       const SizedBox(
                         height: 500,
                       ),

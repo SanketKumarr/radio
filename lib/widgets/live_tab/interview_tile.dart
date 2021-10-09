@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:radio_lnct/widgets/live_tab/audio_screen.dart';
 
+//Note: Global Variables:-
+late String title;
+late String host;
+late String imageAsset;
+late String audioAsset;
+
 class InterviewTile extends StatefulWidget {
-  const InterviewTile({Key? key}) : super(key: key);
+  final title;
+  final host;
+  final imageAsset;
+  final audioAsset;
+
+  const InterviewTile({Key? key, required this.title, required this.host, required this.imageAsset, required this.audioAsset})
+      : super(key: key);
 
   @override
   _InterviewTileState createState() => _InterviewTileState();
@@ -18,15 +30,20 @@ class _InterviewTileState extends State<InterviewTile> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const AudioScreen(),
+              builder: (context) => AudioScreen(
+                title: widget.title,
+                host: widget.host,
+                imageAsset: widget.imageAsset,
+                audioAsset: widget.audioAsset,
+              ),
             ),
           );
         },
         child: ListTile(
           title: Transform.translate(
             offset: const Offset(-17, 0),
-            child: const Text(
-              "Khushboo Gupta - SDE at Google",
+            child: Text(
+              widget.title,
               style: TextStyle(
                 color: Color(0xff242a54),
                 fontSize: 18,
@@ -35,8 +52,8 @@ class _InterviewTileState extends State<InterviewTile> {
           ),
           subtitle: Transform.translate(
             offset: const Offset(-17, 0),
-            child: const Text(
-              "Hosted by Ankul Kumar Singh",
+            child: Text(
+              widget.host,
             ),
           ),
         ),

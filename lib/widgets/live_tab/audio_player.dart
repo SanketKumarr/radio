@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyAudioPlayer extends StatefulWidget {
-  const MyAudioPlayer({Key? key}) : super(key: key);
+  final audioAsset;
+  const MyAudioPlayer({Key? key, required this.audioAsset}) : super(key: key);
 
   @override
   _MyAudioPlayerState createState() => _MyAudioPlayerState();
@@ -25,7 +26,7 @@ class _MyAudioPlayerState extends State<MyAudioPlayer> {
       Playlist(
         audios: [
           Audio(
-            "assets/audios/ig_audio.mp3",
+            widget.audioAsset,
           ),
         ],
       ),

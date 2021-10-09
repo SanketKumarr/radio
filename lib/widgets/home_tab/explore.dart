@@ -62,8 +62,9 @@ class ExploreSec extends StatelessWidget {
                           ),
                         ),
                         decoration: BoxDecoration(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(10),
+                          ),
                           border: Border.all(
                             color: Colors.transparent,
                             width: 2,
@@ -108,7 +109,7 @@ class ExploreSec extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         borderRadius:
-                        const BorderRadius.all(Radius.circular(10)),
+                            const BorderRadius.all(Radius.circular(10)),
                         border: Border.all(
                           color: Colors.transparent,
                           width: 2,
@@ -152,7 +153,7 @@ class ExploreSec extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         borderRadius:
-                        const BorderRadius.all(Radius.circular(10)),
+                            const BorderRadius.all(Radius.circular(10)),
                         border: Border.all(
                           color: Colors.transparent,
                           width: 2,
