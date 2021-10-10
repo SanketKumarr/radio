@@ -69,8 +69,11 @@ flutter:
   assets:
     - assets/audios/ig_audio.mp3
     - ig_audio.mp3
-    - assets/videos/loading.mp4
-    - assets/videos/loading_1.json
+    - assets/illustrations/search.json
+    - assets/illustrations/loading.mp4
+    - assets/illustrations/loading_1.json
+    - assets/illustrations/
+    - assets/illustrations/search_2.jpg
     - assets/images/
     - assets/images/lnct_radio.png
     - assets/images/lnct_radio_logo.png

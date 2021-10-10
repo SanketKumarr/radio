@@ -30,8 +30,9 @@ class _MySplashState extends State<MySplash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(
-          alignment: AlignmentDirectional.center,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
               child: Image.asset(
@@ -39,11 +40,11 @@ class _MySplashState extends State<MySplash> {
                 height: 130,
               ),
             ),
-            Positioned(
-              bottom: 1,
+            Transform.translate(
+              offset: Offset(0, 250),
               child: Lottie.asset(
-                "assets/videos/loading_1.json",
-                height: 120,
+                "assets/illustrations/loading_1.json",
+                height: 100,
               ),
             ),
           ],
