@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:radio_lnct/BottomNavigationBar/home_tab.dart';
 import 'package:radio_lnct/BottomNavigationBar/live_tab.dart';
-import 'package:radio_lnct/BottomNavigationBar/searchTab.dart';
+import 'package:radio_lnct/BottomNavigationBar/search_tab.dart';
 import 'package:radio_lnct/BottomNavigationBar/user_profile_tab.dart';
 
 import 'BottomNavigationBar/news_tab.dart';
