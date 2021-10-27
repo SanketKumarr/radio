@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:radio_lnct/bottom_app_bar.dart';
 import 'package:radio_lnct/main.dart';
 import 'package:radio_lnct/radio_profile.dart';
+import 'package:radio_lnct/screens/sign_in.dart';
 import 'package:radio_lnct/widgets/home_tab/explore.dart';
 import 'package:radio_lnct/widgets/home_tab/post.dart';
 
@@ -9,6 +12,7 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       body: SafeArea(
         child: ScrollConfiguration(
@@ -40,10 +44,11 @@ class HomeTab extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.only(top: 30),
                         child: Text(
-                          "Hello, Sanket",
+                          // Note: to display only the first name.
+                          "Hello, " + user.displayName!.split(" ")[0],
                           style: TextStyle(
                             fontFamily: "ProductSans",
                             color: Color(0xff242a54),
@@ -76,25 +81,23 @@ class HomeTab extends StatelessWidget {
                           ),
                         ),
                       ),
-                       PostSec(
+                      PostSec(
                         postImage: "assets/images/live_cover_1.jpg",
                         caption:
                             'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
                       ),
-                       PostSec(
+                      PostSec(
                         postImage: "assets/images/live_cover_1.jpg",
-                        caption:
-                        'The suffering is an embittered aspect.',
+                        caption: 'The suffering is an embittered aspect.',
                       ),
-                       PostSec(
+                      PostSec(
                         postImage: "assets/images/live_cover_1.jpg",
                         caption:
-                        'Devirginatos volare in cirpi! The suffering is an embittered aspect.',
+                            'Devirginatos volare in cirpi! The suffering is an embittered aspect.',
                       ),
                       SizedBox(
                         height: 100,
                       ),
-
                     ],
                   ),
                 ),

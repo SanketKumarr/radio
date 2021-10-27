@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:radio_lnct/bottom_app_bar.dart';
 import 'package:radio_lnct/screens/sign_in.dart';
+import 'package:radio_lnct/utils/between_auth_and_home_page.dart';
 
 class MySplash extends StatefulWidget {
   const MySplash({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _MySplashState extends State<MySplash> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const SignIn(),
+        builder: (context) => const BetweenAuthAndHomePage(),
       ),
     );
   }

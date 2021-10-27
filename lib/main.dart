@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:radio_lnct/screens/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:radio_lnct/utils/google_sign_in.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -13,15 +18,18 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    return MaterialApp(
-      title: 'Radio',
-      debugShowCheckedModeBanner: false,
-      home: MySplash(),
-      // themeMode: ThemeMode.dark,
-      // theme: ThemeData(
-      //   // primaryColor: Color(0xff242a54),
-      //
-      // ),
+    return ChangeNotifierProvider(
+      create: (context) => GoogleSignInProvider(),
+      child: MaterialApp(
+        title: 'Radio',
+        debugShowCheckedModeBanner: false,
+        home: MySplash(),
+        // themeMode: ThemeMode.dark,
+        // theme: ThemeData(
+        //   // primaryColor: Color(0xff242a54),
+        //
+        // ),
+      ),
     );
   }
 }

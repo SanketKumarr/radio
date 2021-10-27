@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,6 +13,7 @@ class UserProfileTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       body: ScrollConfiguration(
         behavior: MyBehaviour(),
@@ -40,10 +42,10 @@ class UserProfileTab extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const Padding(
+                             Padding(
                               padding: EdgeInsets.only(top: 20),
                               child: Text(
-                                "Sanket Kumar",
+                                user.displayName!,
                                 style: TextStyle(
                                   fontFamily: "ProductSans",
                                   fontWeight: FontWeight.w500,
@@ -53,7 +55,19 @@ class UserProfileTab extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 50),
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text(
+                                user.email!,
+                                style: TextStyle(
+                                  fontFamily: "ProductSans",
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xff242a54),
+                                  fontSize: 23,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 40),
                               child: Stack(
                                 children: [
                                   Container(

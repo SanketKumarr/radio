@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:radio_lnct/utils/google_sign_in.dart';
 
 Future<void> logoutConfirmation(BuildContext context) async {
   return showDialog<void>(
@@ -29,7 +31,13 @@ Future<void> logoutConfirmation(BuildContext context) async {
                     height: 10,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      final provider = Provider.of<GoogleSignInProvider>(
+                          context,
+                          listen: false);
+                      provider.logout();
+                      Navigator.pop(context);
+                    },
                     child: const Text(
                       "OK",
                       style: TextStyle(
