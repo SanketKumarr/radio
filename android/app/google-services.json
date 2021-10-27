@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "494370184073",
+    "project_id": "lnct-radio-e584c",
+    "storage_bucket": "lnct-radio-e584c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494370184073:android:fc219bd0b0025839955f58",
+        "android_client_info": {
+          "package_name": "com.example.radio_lnct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494370184073-g7r0p9q927j0o8pb580ao45vff63jrgd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT-jEi50Sv6_4Q-tHnk1f-ct-67S8gJgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494370184073-g7r0p9q927j0o8pb580ao45vff63jrgd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

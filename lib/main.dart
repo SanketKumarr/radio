@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:radio_lnct/splash_screen.dart';
+import 'package:radio_lnct/screens/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
