@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:radio_lnct/widgets/search_tab/search_bar.dart';
 
-class SearchTab extends StatelessWidget {
+class SearchTab extends StatefulWidget {
   const SearchTab({Key? key}) : super(key: key);
+
+  @override
+  State<SearchTab> createState() => _SearchTabState();
+}
+
+class _SearchTabState extends State<SearchTab> {
+
+  void didChangeDependencies() {
+    precacheImage(AssetImage("assets/illustrations/search_2_removebg_preview.png"), context);
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +78,7 @@ class SearchTab extends StatelessWidget {
               child: Opacity(
                 opacity: 0.6,
                 child: Image.asset(
-                  "assets/illustrations/search_2.jpg",
+                  'assets/illustrations/search_2_removebg_preview.png',
                 ),
               ),
             ),
