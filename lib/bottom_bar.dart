@@ -16,8 +16,8 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   int _index = 0;
-
-  var padding = EdgeInsets.symmetric(horizontal: 18, vertical: 10);
+  // padding for active color box:-
+  var padding = EdgeInsets.symmetric(horizontal: 15, vertical: 15);
   double gap = 10;
 
   List tabs = [
@@ -53,7 +53,7 @@ class _BottomBarState extends State<BottomBar> {
           // margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
@@ -116,7 +116,7 @@ class _BottomBarState extends State<BottomBar> {
                 controller.jumpToPage(index);
               },
               curve: Curves.fastOutSlowIn,
-              duration: Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 400),
             ),
           ),
         ),
