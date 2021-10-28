@@ -26,7 +26,15 @@ class UserProfileTab extends StatelessWidget {
                     Container(
                       width: MediaQuery.of(context).size.width,
                       height: 400,
-                      color: Colors.orange,
+                      decoration: BoxDecoration(
+                        color: Colors.orange,
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            user.photoURL!,
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 330),
@@ -42,7 +50,7 @@ class UserProfileTab extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                             Padding(
+                            Padding(
                               padding: EdgeInsets.only(top: 20),
                               child: Text(
                                 user.displayName!,

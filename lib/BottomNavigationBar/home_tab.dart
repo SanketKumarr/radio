@@ -14,6 +14,7 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: ScrollConfiguration(
           behavior: MyBehaviour(),

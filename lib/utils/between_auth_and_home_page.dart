@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:radio_lnct/bottom_app_bar.dart';
+import 'package:radio_lnct/bottom_bar.dart';
 import 'package:radio_lnct/screens/sign_in.dart';
 
 class BetweenAuthAndHomePage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _BetweenAuthAndHomePageState extends State<BetweenAuthAndHomePage> {
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData) {
-            return Structure();
+            return BottomBar();
           } else if (snapshot.hasError) {
             return Center(
               child: Text(
