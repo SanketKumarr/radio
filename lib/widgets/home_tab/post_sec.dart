@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:radio_lnct/widgets/home_tab/animation_widget.dart';
 
-class PostSec extends StatefulWidget {
+class Post extends StatefulWidget {
   final String postImage;
   final String caption;
 
-  const PostSec({Key? key, required this.postImage, required this.caption})
+  const Post({Key? key, required this.postImage, required this.caption})
       : super(key: key);
 
   @override
-  State<PostSec> createState() => _PostSecState();
+  State<Post> createState() => _PostState();
 }
 
-class _PostSecState extends State<PostSec> {
+class _PostState extends State<Post> {
   bool isHeartAnimating = false;
   bool isLiked = false;
   bool isSaved = false;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:radio_lnct/widgets/home_tab/post.dart';
+import 'package:radio_lnct/widgets/home_tab/post_sec.dart';
 
 class CreatorProfile extends StatelessWidget {
   final name;
@@ -146,7 +146,7 @@ class CreatorProfile extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: const PostSec(
+                child: const Post(
                   postImage: "assets/images/live_cover_1.jpg",
                   caption:
                   'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
@@ -154,7 +154,7 @@ class CreatorProfile extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-                child: const PostSec(
+                child: const Post(
                   postImage: "assets/images/live_cover_1.jpg",
                   caption:
                   'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
@@ -162,7 +162,7 @@ class CreatorProfile extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-                child: const PostSec(
+                child: const Post(
                   postImage: "assets/images/live_cover_1.jpg",
                   caption:
                   'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',

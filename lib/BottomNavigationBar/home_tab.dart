@@ -5,7 +5,7 @@ import 'package:radio_lnct/main.dart';
 import 'package:radio_lnct/radio_profile.dart';
 import 'package:radio_lnct/screens/sign_in.dart';
 import 'package:radio_lnct/widgets/home_tab/explore.dart';
-import 'package:radio_lnct/widgets/home_tab/post.dart';
+import 'package:radio_lnct/widgets/home_tab/post_sec.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -82,16 +82,16 @@ class HomeTab extends StatelessWidget {
                           ),
                         ),
                       ),
-                      PostSec(
+                      Post(
                         postImage: "assets/images/live_cover_1.jpg",
                         caption:
                             'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
                       ),
-                      PostSec(
+                      Post(
                         postImage: "assets/images/live_cover_1.jpg",
                         caption: 'The suffering is an embittered aspect.',
                       ),
-                      PostSec(
+                      Post(
                         postImage: "assets/images/live_cover_1.jpg",
                         caption:
                             'Devirginatos volare in cirpi! The suffering is an embittered aspect.',
