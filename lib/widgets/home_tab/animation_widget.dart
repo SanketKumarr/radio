@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HeartAnimationWidget extends StatefulWidget {
+class AnimationWidget extends StatefulWidget {
   final Widget child;
   final bool isAnimating;
   final bool alwaysAnimate;
   final Duration duration;
   final VoidCallback? onEnd;
 
-  HeartAnimationWidget({
+  AnimationWidget({
     Key? key,
     required this.child,
     required this.isAnimating,
@@ -17,10 +17,10 @@ class HeartAnimationWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _HeartAnimationWidgetState createState() => _HeartAnimationWidgetState();
+  _AnimationWidgetState createState() => _AnimationWidgetState();
 }
 
-class _HeartAnimationWidgetState extends State<HeartAnimationWidget>
+class _AnimationWidgetState extends State<AnimationWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> scale;
@@ -38,7 +38,7 @@ class _HeartAnimationWidgetState extends State<HeartAnimationWidget>
   }
 
   @override
-  void didUpdateWidget(covariant HeartAnimationWidget oldWidget) {
+  void didUpdateWidget(covariant AnimationWidget oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
     if (widget.isAnimating != oldWidget.isAnimating) {

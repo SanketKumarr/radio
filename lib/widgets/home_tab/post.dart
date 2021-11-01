@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:radio_lnct/widgets/home_tab/heart_animation_widget.dart';
+import 'package:radio_lnct/widgets/home_tab/animation_widget.dart';
 
 class PostSec extends StatefulWidget {
   final String postImage;
@@ -53,7 +53,7 @@ class _PostSecState extends State<PostSec> {
                     padding: const EdgeInsets.only(top: 115),
                     child: Opacity(
                       opacity: isHeartAnimating ? 1 : 0,
-                      child: HeartAnimationWidget(
+                      child: AnimationWidget(
                         isAnimating: isHeartAnimating,
                         duration: Duration(milliseconds: 250),
                         onEnd: () => setState(() {
@@ -83,7 +83,7 @@ class _PostSecState extends State<PostSec> {
           children: [
             Transform.translate(
               offset: Offset(-7, 0),
-              child: HeartAnimationWidget(
+              child: AnimationWidget(
                 alwaysAnimate: true,
                 isAnimating: isLiked,
                 child: IconButton(
@@ -101,7 +101,7 @@ class _PostSecState extends State<PostSec> {
             SizedBox(
               width: 240,
             ),
-            HeartAnimationWidget(
+            AnimationWidget(
               alwaysAnimate: true,
               isAnimating: isSaved,
               child: IconButton(

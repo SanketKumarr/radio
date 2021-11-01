@@ -16,6 +16,7 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   int _index = 0;
+
   // padding for active color box:-
   var padding = EdgeInsets.symmetric(horizontal: 15, vertical: 15);
   double gap = 10;
@@ -47,76 +48,84 @@ class _BottomBarState extends State<BottomBar> {
         },
       ),
       bottomNavigationBar: SafeArea(
-        child: Container(
-          height: 63,
-          width: MediaQuery.of(context).size.width,
-          // margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
-            child: GNav(
-              tabs: [
-                GButton(
-                  icon: Ionicons.home_outline,
-                  iconColor: Colors.grey,
-                  iconActiveColor: Color(0xff242a54),
-                  text: "Home",
-                  textStyle: TextStyle(
-                    color: Color(0xff242a54),
-                    fontFamily: "ProductSans",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Container(
+            height: 63,
+            width: MediaQuery.of(context).size.width,
+            // margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
+              child: GNav(
+                tabs: [
+                  GButton(
+                    icon: Ionicons.home_outline,
+                    iconColor: Colors.grey,
+                    iconActiveColor: Color(0xff242a54),
+                    text: "Home",
+                    textStyle: TextStyle(
+                      color: Color(0xff242a54),
+                      fontFamily: "ProductSans",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                    ),
+                    backgroundColor: Colors.orange.withOpacity(0.2),
+                    iconSize: 25,
+                    padding: padding,
+                    gap: gap,
                   ),
-                  backgroundColor: Colors.orange.withOpacity(0.2),
-                  iconSize: 25,
-                  padding: padding,
-                  gap: gap,
-                ),
-                GButton(
-                  icon: Ionicons.mic,
-                  iconColor: Colors.grey,
-                  iconActiveColor: Color(0xff242a54),
-                  text: "Interview",
-                  textStyle: TextStyle(
-                    color: Color(0xff242a54),
-                    fontFamily: "ProductSans",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
+                  GButton(
+                    icon: Ionicons.mic,
+                    iconColor: Colors.grey,
+                    iconActiveColor: Color(0xff242a54),
+                    text: "Interview",
+                    textStyle: TextStyle(
+                      color: Color(0xff242a54),
+                      fontFamily: "ProductSans",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                    ),
+                    backgroundColor: Colors.orangeAccent.withOpacity(0.2),
+                    iconSize: 24,
+                    padding: padding,
+                    gap: gap,
                   ),
-                  backgroundColor: Colors.orangeAccent.withOpacity(0.2),
-                  iconSize: 24,
-                  padding: padding,
-                  gap: gap,
-                ),
-                GButton(
-                  icon: Ionicons.person_outline,
-                  iconColor: Colors.grey,
-                  iconActiveColor: Color(0xff242a54),
-                  text: "Profile",
-                  textStyle: TextStyle(
-                    color: Color(0xff242a54),
-                    fontFamily: "ProductSans",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 15,
+                  GButton(
+                    icon: Ionicons.person_outline,
+                    iconColor: Colors.grey,
+                    iconActiveColor: Color(0xff242a54),
+                    text: "Profile",
+                    textStyle: TextStyle(
+                      color: Color(0xff242a54),
+                      fontFamily: "ProductSans",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                    ),
+                    backgroundColor: Colors.orangeAccent.withOpacity(0.2),
+                    iconSize: 24,
+                    padding: padding,
+                    gap: gap,
                   ),
-                  backgroundColor: Colors.orangeAccent.withOpacity(0.2),
-                  iconSize: 24,
-                  padding: padding,
-                  gap: gap,
-                ),
-              ],
-              selectedIndex: _index,
-              onTabChange: (index) {
-                setState(() {
-                  _index = index;
-                });
-                controller.jumpToPage(index);
-              },
-              curve: Curves.fastOutSlowIn,
-              duration: Duration(milliseconds: 400),
+                ],
+                selectedIndex: _index,
+                onTabChange: (index) {
+                  setState(() {
+                    _index = index;
+                  });
+                  controller.jumpToPage(index);
+                },
+                curve: Curves.fastOutSlowIn,
+                duration: Duration(milliseconds: 400),
+              ),
             ),
           ),
         ),
