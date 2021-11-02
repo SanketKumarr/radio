@@ -18,7 +18,7 @@ class _BottomBarState extends State<BottomBar> {
   int _index = 0;
 
   // padding for active color box:-
-  var padding = EdgeInsets.symmetric(horizontal: 15, vertical: 15);
+  var padding = EdgeInsets.symmetric(horizontal: 12, vertical: 12);
   double gap = 10;
 
   List tabs = [
@@ -50,7 +50,7 @@ class _BottomBarState extends State<BottomBar> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 10, left: 10, right: 10),
         child: Container(
-          height: 59,
+          height: 50,
           width: MediaQuery.of(context).size.width,
           // margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           decoration: BoxDecoration(
@@ -70,10 +70,10 @@ class _BottomBarState extends State<BottomBar> {
                     color: Color(0xff242a54),
                     fontFamily: "ProductSans",
                     fontWeight: FontWeight.w500,
-                    fontSize: 15,
+                    fontSize: 18,
                   ),
                   backgroundColor: Colors.white,
-                  iconSize: 25,
+                  iconSize: 24,
                   padding: padding,
                   gap: gap,
                 ),
@@ -86,7 +86,7 @@ class _BottomBarState extends State<BottomBar> {
                     color: Color(0xff242a54),
                     fontFamily: "ProductSans",
                     fontWeight: FontWeight.w500,
-                    fontSize: 15,
+                    fontSize: 18,
                   ),
                   backgroundColor: Colors.white,
                   iconSize: 24,
@@ -102,7 +102,7 @@ class _BottomBarState extends State<BottomBar> {
                     color: Color(0xff242a54),
                     fontFamily: "ProductSans",
                     fontWeight: FontWeight.w500,
-                    fontSize: 15,
+                    fontSize: 18,
                   ),
                   backgroundColor: Colors.white,
                   iconSize: 24,
