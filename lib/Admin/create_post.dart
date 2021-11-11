@@ -1,12 +1,16 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:image/image.dart' as Im;
+import 'package:radio_lnct/Admin/storage_service.dart';
 import 'package:uuid/uuid.dart';
 
-final storageRef = FirebaseStorage.instance.ref();
+
+final Reference storageRef = FirebaseStorage.instance.ref();
+final postRef = FirebaseFirestore.instance.collection('posts');
 
 class CreatePost extends StatefulWidget {
   const CreatePost({Key? key}) : super(key: key);
@@ -16,6 +20,7 @@ class CreatePost extends StatefulWidget {
 }
 
 class _CreatePostState extends State<CreatePost> {
+  TextEditingController captionController = TextEditingController();
   File? image;
   bool isUploading = false;
   final ImagePicker _picker = ImagePicker();
@@ -46,6 +51,10 @@ class _CreatePostState extends State<CreatePost> {
     setState(() {
       this.image = imageTemp;
     });
+    final path = image.path;
+    final imgName = image.name;
+    print(path);
+    print(imgName);
   }
 
   clearImage() {
@@ -69,6 +78,17 @@ class _CreatePostState extends State<CreatePost> {
     UploadTask uploadTask =
         storageRef.child("post_$postId.jpg").putFile(imageFile);
     TaskSnapshot storageSnap = await uploadTask.whenComplete(() {});
+    String downloadUrl = await storageSnap.ref.getDownloadURL();
+    return downloadUrl;
+  }
+
+  createPostInFirestore(
+      {required String mediaUrl, required String description}) {
+    postRef.doc('adminPost').set({
+      "postId": postId,
+      "mediaUrl": mediaUrl,
+      "description": description,
+    });
   }
 
   handleSubmit() async {
@@ -76,7 +96,17 @@ class _CreatePostState extends State<CreatePost> {
       isUploading = true;
     });
     await compressImage();
-    await uploadImage(image);
+    String mediaUrl = await uploadImage(image);
+    createPostInFirestore(
+      mediaUrl: mediaUrl,
+      description: captionController.text,
+    );
+    captionController.clear();
+    setState(() {
+      image = null;
+      isUploading = false;
+      postId = Uuid().v4();
+    });
   }
 
   uploadForm() {
@@ -108,7 +138,7 @@ class _CreatePostState extends State<CreatePost> {
               width: MediaQuery.of(context).size.width * 0.8,
               child: Center(
                 child: Container(
-                  width: 200,
+                  width: 220,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: FileImage(image!),
@@ -127,7 +157,8 @@ class _CreatePostState extends State<CreatePost> {
                 child: Container(
                   width: 250,
                   child: TextField(
-                    maxLines: 5,
+                    controller: captionController,
+                    // maxLines: 5,
                     decoration: InputDecoration(
                       hintText: "Write a caption...",
                     ),
@@ -143,7 +174,7 @@ class _CreatePostState extends State<CreatePost> {
                 "Post",
               ),
               onPressed: () {
-                isUploading ? null : () => handleSubmit();
+                handleSubmit();
               },
               color: Color(0xff242a54),
               textColor: Colors.white,
@@ -157,5 +188,10 @@ class _CreatePostState extends State<CreatePost> {
   @override
   Widget build(BuildContext context) {
     return image == null ? buildSplashScreen() : uploadForm();
+    // return Scaffold(
+    //   body: Center(
+    //     child: Text("welcome"),
+    //   ),
+    // );
   }
 }
