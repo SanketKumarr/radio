@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:radio_lnct/Admin/create_post.dart';
+import 'package:radio_lnct/Admin/post_model.dart';
 import 'package:radio_lnct/bottom_app_bar.dart';
 import 'package:radio_lnct/main.dart';
 import 'package:radio_lnct/radio_profile.dart';
@@ -7,8 +10,43 @@ import 'package:radio_lnct/screens/sign_in.dart';
 import 'package:radio_lnct/widgets/home_tab/explore.dart';
 import 'package:radio_lnct/widgets/home_tab/post_sec.dart';
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  bool isThereAnyPost = true;
+  bool isLoading = false;
+  List<postModel> posts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getProfilePosts();
+  }
+
+  getProfilePosts() async {
+    setState(() {
+      isLoading = true;
+    });
+    QuerySnapshot snapshot = await postRef.get();
+    setState(() {
+      isLoading = false;
+      posts = snapshot.docs.map((doc) => postModel.fromDocument(doc)).toList();
+    });
+  }
+
+  buildPosts() {
+    if (isLoading == true) {
+      return CircularProgressIndicator();
+    }
+    return Column(
+      children: posts,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,20 +120,28 @@ class HomeTab extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Post(
-                        postImage: "assets/images/live_cover_1.jpg",
-                        caption:
-                            'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
-                      ),
-                      Post(
-                        postImage: "assets/images/live_cover_1.jpg",
-                        caption: 'The suffering is an embittered aspect.',
-                      ),
-                      Post(
-                        postImage: "assets/images/live_cover_1.jpg",
-                        caption:
-                            'Devirginatos volare in cirpi! The suffering is an embittered aspect.',
-                      ),
+                      if (isThereAnyPost == false)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 80),
+                          child: Center(
+                            child: Text(
+                              "No post yet",
+                              style: TextStyle(
+                                fontFamily: "ProductSans",
+                                color: Color(0xff242a54).withOpacity(0.6),
+                                fontSize: 23,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        )
+                      else
+                        buildPosts(),
+                        // Post(
+                        //   postImage: "assets/images/live_cover_1.jpg",
+                        //   caption:
+                        //       'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
+                        // ),
                       SizedBox(
                         height: 100,
                       ),

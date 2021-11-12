@@ -10,6 +10,7 @@ import 'package:uuid/uuid.dart';
 
 final Reference storageRef = FirebaseStorage.instance.ref();
 final postRef = FirebaseFirestore.instance.collection('posts');
+String postId = Uuid().v4();
 
 class CreatePost extends StatefulWidget {
   const CreatePost({Key? key}) : super(key: key);
@@ -83,7 +84,7 @@ class _CreatePostState extends State<CreatePost> {
 
   createPostInFirestore(
       {required String mediaUrl, required String description}) {
-    postRef.doc('adminPost').set({
+    postRef.add({
       "postId": postId,
       "mediaUrl": mediaUrl,
       "description": description,
