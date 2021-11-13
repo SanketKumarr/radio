@@ -88,6 +88,7 @@ class _CreatePostState extends State<CreatePost> {
       "postId": postId,
       "mediaUrl": mediaUrl,
       "description": description,
+      "createdAt": FieldValue.serverTimestamp(),
     });
   }
 

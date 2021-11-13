@@ -3,12 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:radio_lnct/Admin/create_post.dart';
 import 'package:radio_lnct/Admin/post_model.dart';
-import 'package:radio_lnct/bottom_app_bar.dart';
 import 'package:radio_lnct/main.dart';
 import 'package:radio_lnct/radio_profile.dart';
-import 'package:radio_lnct/screens/sign_in.dart';
 import 'package:radio_lnct/widgets/home_tab/explore.dart';
-import 'package:radio_lnct/widgets/home_tab/post_sec.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -18,7 +15,7 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-  bool isThereAnyPost = true;
+  bool isThereAnyPost = false;
   bool isLoading = false;
   List<postModel> posts = [];
 
@@ -31,10 +28,13 @@ class _HomeTabState extends State<HomeTab> {
   getProfilePosts() async {
     setState(() {
       isLoading = true;
+      isThereAnyPost = true;
     });
-    QuerySnapshot snapshot = await postRef.get();
+    QuerySnapshot snapshot =
+        await postRef.orderBy('createdAt', descending: true).get();
     setState(() {
       isLoading = false;
+      // isThereAnyPost = false;
       posts = snapshot.docs.map((doc) => postModel.fromDocument(doc)).toList();
     });
   }
@@ -137,11 +137,11 @@ class _HomeTabState extends State<HomeTab> {
                         )
                       else
                         buildPosts(),
-                        // Post(
-                        //   postImage: "assets/images/live_cover_1.jpg",
-                        //   caption:
-                        //       'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
-                        // ),
+                      // Post(
+                      //   postImage: "assets/images/live_cover_1.jpg",
+                      //   caption:
+                      //       'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
+                      // ),
                       SizedBox(
                         height: 100,
                       ),
