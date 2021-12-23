@@ -19,17 +19,17 @@ class CreateInterview extends StatefulWidget {
 }
 
 class _CreateInterviewState extends State<CreateInterview> {
-
   File? audio;
   bool isUploading = false;
-
+  TextEditingController titleController = TextEditingController();
+  TextEditingController hostController = TextEditingController();
 
   handleChooseFromGallery() async {
     final audio = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['mp3'],
     );
-    if(audio == null) {
+    if (audio == null) {
       return;
     }
     final file = audio.files.first;
@@ -41,7 +41,6 @@ class _CreateInterviewState extends State<CreateInterview> {
     });
     // final path = audio.paths;
     print('Path: ${file.path}');
-
   }
 
   void openFile(PlatformFile file) {
@@ -56,16 +55,17 @@ class _CreateInterviewState extends State<CreateInterview> {
 
   uploadInterview(audioFile) async {
     UploadTask uploadTask =
-    storageRef.child("interview_$interviewId.jpg").putFile(audioFile);
+        storageRef.child("interview_$interviewId.jpg").putFile(audioFile);
     TaskSnapshot storageSnap = await uploadTask.whenComplete(() {});
     String downloadUrl = await storageSnap.ref.getDownloadURL();
     return downloadUrl;
   }
 
-  createInterviewInFirestore(
-      {required String mediaUrl}) {
+  createInterviewInFirestore({required String mediaUrl, required String title, required String host}) {
     interviewRef.add({
       "interviewId": interviewId,
+      "title": title,
+      "host": host,
       "mediaUrl": mediaUrl,
       "createdAt": FieldValue.serverTimestamp(),
     });
@@ -77,6 +77,8 @@ class _CreateInterviewState extends State<CreateInterview> {
     });
     String mediaUrl = await uploadInterview(audio);
     createInterviewInFirestore(
+      title: titleController.text,
+      host: hostController.text,
       mediaUrl: mediaUrl,
     );
     setState(() {
@@ -97,7 +99,6 @@ class _CreateInterviewState extends State<CreateInterview> {
         child: MaterialButton(
           onPressed: () async {
             handleChooseFromGallery();
-
           },
           child: Text("Create interview"),
           textColor: Colors.white,
@@ -131,6 +132,26 @@ class _CreateInterviewState extends State<CreateInterview> {
         child: Column(
           children: [
             isUploading ? LinearProgressIndicator() : Text(""),
+            Container(
+              width: 250,
+              child: TextField(
+                controller: titleController,
+                // maxLines: 5,
+                decoration: InputDecoration(
+                  hintText: "Title",
+                ),
+              ),
+            ),
+            Container(
+              width: 250,
+              child: TextField(
+                controller: hostController,
+                // maxLines: 5,
+                decoration: InputDecoration(
+                  hintText: "Host",
+                ),
+              ),
+            ),
             Center(
               child: MaterialButton(
                 child: Text(
