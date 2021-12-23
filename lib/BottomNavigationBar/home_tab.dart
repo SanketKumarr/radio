@@ -28,13 +28,12 @@ class _HomeTabState extends State<HomeTab> {
   getProfilePosts() async {
     setState(() {
       isLoading = true;
-      isThereAnyPost = true;
     });
     QuerySnapshot snapshot =
-        await postRef.orderBy('createdAt', descending: true).get();
+        await interviewRef.orderBy('createdAt', descending: true).get();
     setState(() {
       isLoading = false;
-      // isThereAnyPost = false;
+      isThereAnyPost = true;
       posts = snapshot.docs.map((doc) => postModel.fromDocument(doc)).toList();
     });
   }
@@ -137,11 +136,6 @@ class _HomeTabState extends State<HomeTab> {
                         )
                       else
                         buildPosts(),
-                      // Post(
-                      //   postImage: "assets/images/live_cover_1.jpg",
-                      //   caption:
-                      //       'Never invent the saint, for you cannot illuminate it. The suffering is an embittered aspect.',
-                      // ),
                       SizedBox(
                         height: 100,
                       ),

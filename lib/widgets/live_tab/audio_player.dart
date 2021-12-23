@@ -199,7 +199,6 @@ class _MyAudioPlayerState extends State<MyAudioPlayer> {
 
 class CustomTrackShape extends RoundedRectSliderTrackShape {
   /// Removes side padding of slider
-  /// Credit goes to @clocksmith, https://github.com/flutter/flutter/issues/37057
   @override
   Rect getPreferredRect({
     required RenderBox parentBox,

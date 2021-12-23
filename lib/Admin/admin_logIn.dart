@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:radio_lnct/Admin/admin_screen.dart';
 import 'package:radio_lnct/Admin/create_post.dart';
 
 class AdminLogIn extends StatefulWidget {
@@ -49,7 +50,7 @@ class _AdminLogInState extends State<AdminLogIn> {
                   if (querySnapshot.data()!.containsValue(keyController.text)) {
                     print('Keys matched');
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => CreatePost()));
+                        MaterialPageRoute(builder: (context) => AdminScreen()));
                   } else {
                     msg = "Keys don't match";
                     print("Keys don't match");

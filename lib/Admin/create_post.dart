@@ -9,8 +9,8 @@ import 'package:uuid/uuid.dart';
 
 
 final Reference storageRef = FirebaseStorage.instance.ref();
-final postRef = FirebaseFirestore.instance.collection('posts');
-String postId = Uuid().v4();
+final interviewRef = FirebaseFirestore.instance.collection('posts');
+String interviewId = Uuid().v4();
 
 class CreatePost extends StatefulWidget {
   const CreatePost({Key? key}) : super(key: key);
@@ -43,7 +43,7 @@ class _CreatePostState extends State<CreatePost> {
     // Navigator.pop(context);
     final image = await _picker.pickImage(
       source: ImageSource.gallery,
-      imageQuality: 50,
+      imageQuality: 100,
     );
     if (image == null) return;
     final imageTemp = File(image.path);
@@ -84,7 +84,7 @@ class _CreatePostState extends State<CreatePost> {
 
   createPostInFirestore(
       {required String mediaUrl, required String description}) {
-    postRef.add({
+    interviewRef.add({
       "postId": postId,
       "mediaUrl": mediaUrl,
       "description": description,
