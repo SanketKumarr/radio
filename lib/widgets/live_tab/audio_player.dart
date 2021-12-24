@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyAudioPlayer extends StatefulWidget {
-  final audioAsset;
-  const MyAudioPlayer({Key? key, required this.audioAsset}) : super(key: key);
+  final audioUrl;
+  const MyAudioPlayer({Key? key, required this.audioUrl}) : super(key: key);
 
   @override
   _MyAudioPlayerState createState() => _MyAudioPlayerState();
@@ -23,13 +23,7 @@ class _MyAudioPlayerState extends State<MyAudioPlayer> {
 
   void setupPlaylist() async {
     audioPlayer.open(
-      Playlist(
-        audios: [
-          Audio(
-            widget.audioAsset,
-          ),
-        ],
-      ),
+      Audio.network(widget.audioUrl),
       autoStart: false,
       playInBackground: PlayInBackground.enabled,
       showNotification: true,
@@ -121,7 +115,7 @@ class _MyAudioPlayerState extends State<MyAudioPlayer> {
                   Color(0xff1c1c1e),
                   Color(0xff1c1c1e),
                 ],
-                stops: [0.0, 0.55, 0.55, 1.0],
+                // stops: [0.0, 0.55, 0.55, 1.0],
                 end: Alignment.bottomCenter,
                 begin: Alignment.topCenter,
               ),

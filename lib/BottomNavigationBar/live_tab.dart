@@ -1,6 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:radio_lnct/Admin/create_interview.dart';
 import 'package:radio_lnct/main.dart';
 import 'package:radio_lnct/widgets/live_tab/audio_player.dart';
 import 'package:radio_lnct/widgets/live_tab/audio_screen.dart';
@@ -17,11 +19,42 @@ class LiveTab extends StatefulWidget {
 class _LiveTabState extends State<LiveTab> {
   late AudioPlayer advancedPlayer;
 
+  // bool isThereAnyInterview = false;
+  bool isLoading = false;
+  List<InterviewTile> interviews = [];
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    getInterviews();
     advancedPlayer = AudioPlayer();
+  }
+
+  getInterviews() async {
+    setState(() {
+      isLoading = true;
+    });
+    QuerySnapshot snapshot =
+        await interviewRef.orderBy('createdAt', descending: true).get();
+    setState(() {
+      isLoading = false;
+      // isThereAnyInterview = true;
+      interviews =
+          snapshot.docs.map((doc) => InterviewTile.fromDocument(doc)).toList();
+    });
+  }
+
+  buildInterviews() {
+    if (isLoading == true) {
+      return Center(
+          child: CircularProgressIndicator(
+        color: Color(0xff242a54),
+      ));
+    }
+    return Column(
+      children: interviews,
+    );
   }
 
   @override
@@ -152,70 +185,6 @@ class _LiveTabState extends State<LiveTab> {
                           height: 30,
                         ),
                         MostViewed(),
-                        /*const Text(
-                          "Most Viewed",
-                          style: TextStyle(
-                            color: Color(0xff242a54),
-                            fontSize: 25,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CarouselSlider(
-                          options: CarouselOptions(
-                            height: 150,
-                            viewportFraction: 0.8,
-                            autoPlay: true,
-                            enableInfiniteScroll: true,
-                          ),
-                          items: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 220,
-                                  height: 110,
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(10),
-                                    ),
-                                    border: Border.all(
-                                        color: Colors.orange, width: 2),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Text(
-                                  "A",
-                                ),
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 220,
-                                  height: 110,
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(10),
-                                    ),
-                                    border: Border.all(
-                                        color: Colors.orange, width: 2),
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Text(
-                                  "B",
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),*/
                         const SizedBox(
                           height: 50,
                         ),
@@ -231,26 +200,7 @@ class _LiveTabState extends State<LiveTab> {
                         const SizedBox(
                           height: 30,
                         ),
-                        InterviewTile(
-                          title: 'Khushboo Gupta - SDE at Google',
-                          host: 'Hosted by Ankul Kumar Singh',
-                          audioAsset: "assets/audios/ig_audio.mp3",
-                          imageAsset: "assets/images/live_cover_1.jpg",
-                        ),
-                        Divider(),
-                        InterviewTile(
-                          title: 'Khushboo - SDE at Google',
-                          host: 'Hosted by Ankul Kumar Singh',
-                          audioAsset: "assets/audios/ig_audio.mp3",
-                          imageAsset: "assets/images/live_cover_1.jpg",
-                        ),
-                        Divider(),
-                        InterviewTile(
-                          title: ' Gupta - SDE at Google',
-                          host: 'Hosted Ankul Kumar Singh',
-                          audioAsset: "assets/audios/ig_audio.mp3",
-                          imageAsset: "assets/images/live_cover_1.jpg",
-                        ),
+                        buildInterviews(),
                         const SizedBox(
                           height: 500,
                         ),

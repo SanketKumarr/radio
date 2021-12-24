@@ -55,7 +55,7 @@ class _CreateInterviewState extends State<CreateInterview> {
 
   uploadInterview(audioFile) async {
     UploadTask uploadTask =
-        storageRef.child("interview_$interviewId.jpg").putFile(audioFile);
+        storageRef.child("interview_$interviewId.mp3").putFile(audioFile);
     TaskSnapshot storageSnap = await uploadTask.whenComplete(() {});
     String downloadUrl = await storageSnap.ref.getDownloadURL();
     return downloadUrl;

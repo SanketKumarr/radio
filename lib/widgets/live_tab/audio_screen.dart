@@ -1,27 +1,53 @@
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:radio_lnct/widgets/live_tab/audio_player.dart';
 
 class AudioScreen extends StatefulWidget {
-  final title;
-  final host;
-  final imageAsset;
-  final audioAsset;
+  late final String title;
+  late final String host;
+  late final String interviewId;
+  late final String mediaUrl;
 
-  const AudioScreen(
-      {Key? key,
-      required this.title,
-      required this.host,
-      required this.imageAsset,
-      required this.audioAsset})
-      : super(key: key);
+  AudioScreen({
+    required this.title,
+    required this.host,
+    required this.interviewId,
+    required this.mediaUrl,
+  });
+
+  factory AudioScreen.fromDocument(DocumentSnapshot doc) {
+    return AudioScreen(
+      title: doc['title'],
+      host: doc['host'],
+      interviewId: doc['interviewId'],
+      mediaUrl: doc['mediaUrl'],
+    );
+  }
 
   @override
-  _AudioScreenState createState() => _AudioScreenState();
+  State<AudioScreen> createState() => _AudioScreenState(
+        title: this.title,
+        host: this.host,
+        interviewId: this.interviewId,
+        mediaUrl: this.mediaUrl,
+      );
 }
 
 class _AudioScreenState extends State<AudioScreen> {
+  late final String title;
+  late final String host;
+  late final String interviewId;
+  late final String mediaUrl;
+
+  _AudioScreenState({
+    required this.title,
+    required this.host,
+    required this.interviewId,
+    required this.mediaUrl,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +72,7 @@ class _AudioScreenState extends State<AudioScreen> {
               padding: const EdgeInsets.only(top: 70, left: 50, right: 50),
               child: SizedBox(
                 child: Image.asset(
-                  widget.imageAsset,
+                  "",
                   // width: 250,
                   // height: 250,
                   alignment: Alignment.center,
@@ -59,7 +85,7 @@ class _AudioScreenState extends State<AudioScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 18),
               child: Text(
-                widget.title,
+                title,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 20,
@@ -69,7 +95,7 @@ class _AudioScreenState extends State<AudioScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 18),
               child: Text(
-                widget.host,
+                host,
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 14,
@@ -81,16 +107,16 @@ class _AudioScreenState extends State<AudioScreen> {
               height: 5,
             ),
             MyAudioPlayer(
-              audioAsset: widget.audioAsset,
+              audioUrl: mediaUrl,
             ),
             const SizedBox(
               height: 53,
             ),
-            Lottie.network(
-              "https://assets5.lottiefiles.com/packages/lf20_6jfc4gby.json",
-              // height: 95,
-              // width: 50,
-            ),
+            // Lottie.network(
+            //   "https://assets5.lottiefiles.com/packages/lf20_6jfc4gby.json",
+            //   // height: 95,
+            //   // width: 50,
+            // ),
           ],
         ),
       ),

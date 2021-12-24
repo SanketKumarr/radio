@@ -30,7 +30,7 @@ class _HomeTabState extends State<HomeTab> {
       isLoading = true;
     });
     QuerySnapshot snapshot =
-        await interviewRef.orderBy('createdAt', descending: true).get();
+        await postRef.orderBy('createdAt', descending: true).get();
     setState(() {
       isLoading = false;
       isThereAnyPost = true;
