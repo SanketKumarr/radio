@@ -42,9 +42,26 @@ class _HomeTabState extends State<HomeTab> {
     if (isLoading == true) {
       return CircularProgressIndicator();
     }
-    return Column(
-      children: posts,
-    );
+    if (posts.isNotEmpty) {
+      return Column(
+        children: posts,
+      );
+    }
+    if (posts.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 80),
+        child: Center(
+          child: Text(
+            "No post yet",
+            style: TextStyle(
+              fontFamily: "ProductSans",
+              color: Color(0xff242a54).withOpacity(0.5),
+              fontSize: 25,
+            ),
+          ),
+        ),
+      );
+    }
   }
 
   @override

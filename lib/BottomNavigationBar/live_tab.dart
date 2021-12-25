@@ -52,9 +52,27 @@ class _LiveTabState extends State<LiveTab> {
         color: Color(0xff242a54),
       ));
     }
-    return Column(
-      children: interviews,
-    );
+    if(interviews.isNotEmpty) {
+      return Column(
+        children: interviews,
+      );
+    }
+    if(interviews.isEmpty) {
+      return Padding(
+        padding: const EdgeInsets.only(top: 80),
+        child: Center(
+          child: Text(
+            "No interview yet",
+            style: TextStyle(
+              fontFamily: "ProductSans",
+              color: Color(0xff242a54).withOpacity(0.5),
+              fontSize: 25,
+            ),
+          ),
+        ),
+      );
+    }
+
   }
 
   @override
