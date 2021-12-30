@@ -20,9 +20,11 @@ class CreateInterview extends StatefulWidget {
 
 class _CreateInterviewState extends State<CreateInterview> {
   File? audio;
+  File? coverPic;
   bool isUploading = false;
   TextEditingController titleController = TextEditingController();
   TextEditingController hostController = TextEditingController();
+  late final PlatformFile file;
 
   handleChooseFromGallery() async {
     final audio = await FilePicker.platform.pickFiles(
@@ -32,7 +34,7 @@ class _CreateInterviewState extends State<CreateInterview> {
     if (audio == null) {
       return;
     }
-    final file = audio.files.first;
+    file = audio.files.first;
     // openFile(file);
     final audioTemp = File(file.path as String);
 
@@ -50,6 +52,7 @@ class _CreateInterviewState extends State<CreateInterview> {
   clearAudio() {
     setState(() {
       audio = null;
+      coverPic = null;
     });
   }
 
@@ -61,12 +64,26 @@ class _CreateInterviewState extends State<CreateInterview> {
     return downloadUrl;
   }
 
-  createInterviewInFirestore({required String mediaUrl, required String title, required String host}) {
+  uploadCoverPic(coverPicFile) async {
+    UploadTask uploadTask = storageRef
+        .child("interviewCoverPic_$interviewId.mp3")
+        .putFile(coverPicFile);
+    TaskSnapshot storageSnap = await uploadTask.whenComplete(() {});
+    String downloadUrl = await storageSnap.ref.getDownloadURL();
+    return downloadUrl;
+  }
+
+  createInterviewInFirestore(
+      {required String mediaUrl,
+      required String coverPicUrl,
+      required String title,
+      required String host}) {
     interviewRef.add({
       "interviewId": interviewId,
       "title": title,
       "host": host,
       "mediaUrl": mediaUrl,
+      "coverPicUrl": coverPicUrl,
       "createdAt": FieldValue.serverTimestamp(),
     });
   }
@@ -76,13 +93,16 @@ class _CreateInterviewState extends State<CreateInterview> {
       isUploading = true;
     });
     String mediaUrl = await uploadInterview(audio);
+    String coverPicUrl = await uploadCoverPic(coverPic);
     createInterviewInFirestore(
       title: titleController.text,
       host: hostController.text,
       mediaUrl: mediaUrl,
+      coverPicUrl: coverPicUrl,
     );
     setState(() {
       audio = null;
+      coverPic = null;
       isUploading = false;
       interviewId = Uuid().v4();
     });
@@ -133,6 +153,27 @@ class _CreateInterviewState extends State<CreateInterview> {
           children: [
             isUploading ? LinearProgressIndicator() : Text(""),
             Container(
+              height: 220,
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: coverPic == null
+                  ? Center(
+                      child: Text(
+                        "Cover pic not selected,",
+                      ),
+                    )
+                  : Center(
+                      child: Container(
+                        width: 220,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: FileImage(coverPic!),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+            ),
+            Container(
               width: 250,
               child: TextField(
                 controller: titleController,
@@ -158,15 +199,57 @@ class _CreateInterviewState extends State<CreateInterview> {
                   "Post",
                 ),
                 onPressed: () {
-                  handleSubmit();
+                  if (coverPic != null) {
+                    handleSubmit();
+                  } else {
+                    print("pic not selected");
+                    const snackBar = SnackBar(
+                      content: Text(
+                        "Cover pic not selected, select a cover pic first",
+                      ),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }
                 },
                 color: Color(0xff242a54),
                 textColor: Colors.white,
+              ),
+            ),
+            Center(
+              child: MaterialButton(
+                child: Text(
+                  "Choose cover pic",
+                ),
+                color: Color(0xff242a54),
+                textColor: Colors.white,
+                onPressed: () {
+                  handleChooseCoverPic();
+                },
               ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  handleChooseCoverPic() async {
+    final coverPic = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['jpg', 'png', 'jpeg'],
+    );
+    if (coverPic == null) {
+      return;
+    }
+    final file = coverPic.files.first;
+    // openFile(file);
+    final coverPicTemp = File(file.path as String);
+
+    setState(() {
+      this.coverPic = coverPicTemp;
+    });
+
+    // final path = audio.paths;
+    print('Path: ${file.path}');
   }
 }

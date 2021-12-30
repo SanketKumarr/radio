@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:radio_lnct/widgets/live_tab/audio_screen.dart';
+import 'package:radio_lnct/Admin/Models/interview_model.dart';
 
 //Note: Global Variables:-
 // late String title;
@@ -13,6 +13,8 @@ class InterviewTile extends StatefulWidget {
   late final String host;
   late final String mediaUrl;
   late final String interviewId;
+  late final String coverPicUrl;
+
 
   InterviewTile({
     // Key? key,
@@ -20,6 +22,8 @@ class InterviewTile extends StatefulWidget {
     required this.host,
     required this.mediaUrl,
     required this.interviewId,
+    required this.coverPicUrl,
+
   });
 
   factory InterviewTile.fromDocument(DocumentSnapshot doc) {
@@ -28,6 +32,7 @@ class InterviewTile extends StatefulWidget {
       host: doc.data().toString().contains('host') ? doc.get('host') : '',
       mediaUrl: doc.data().toString().contains('mediaUrl') ? doc.get('mediaUrl') : '',
       interviewId: doc.data().toString().contains('interviewId') ? doc.get('interviewId') : '',
+      coverPicUrl: doc.data().toString().contains('coverPicUrl') ? doc.get('coverPicUrl') : '',
     );
   }
 
@@ -37,6 +42,7 @@ class InterviewTile extends StatefulWidget {
         mediaUrl: this.mediaUrl,
         host: this.host,
         interviewId: this.interviewId,
+        coverPicUrl: this.coverPicUrl,
       );
 }
 
@@ -45,12 +51,15 @@ class _InterviewTileState extends State<InterviewTile> {
   late final String host;
   late final String mediaUrl;
   late final String interviewId;
+  late final String coverPicUrl;
+
 
   _InterviewTileState({
     required this.title,
     required this.interviewId,
     required this.host,
     required this.mediaUrl,
+    required this.coverPicUrl,
   });
 
   @override
@@ -67,6 +76,7 @@ class _InterviewTileState extends State<InterviewTile> {
                 host: host,
                 mediaUrl: mediaUrl,
                 interviewId: interviewId,
+                coverPicUrl: coverPicUrl,
               ),
             ),
           );

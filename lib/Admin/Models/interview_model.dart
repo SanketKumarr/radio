@@ -9,12 +9,14 @@ class AudioScreen extends StatefulWidget {
   late final String host;
   late final String interviewId;
   late final String mediaUrl;
+  late final String coverPicUrl;
 
   AudioScreen({
     required this.title,
     required this.host,
     required this.interviewId,
     required this.mediaUrl,
+    required this.coverPicUrl,
   });
 
   factory AudioScreen.fromDocument(DocumentSnapshot doc) {
@@ -23,6 +25,7 @@ class AudioScreen extends StatefulWidget {
       host: doc['host'],
       interviewId: doc['interviewId'],
       mediaUrl: doc['mediaUrl'],
+      coverPicUrl: doc['coverPicUrl'],
     );
   }
 
@@ -32,6 +35,7 @@ class AudioScreen extends StatefulWidget {
         host: this.host,
         interviewId: this.interviewId,
         mediaUrl: this.mediaUrl,
+        coverPicUrl: this.coverPicUrl,
       );
 }
 
@@ -40,12 +44,14 @@ class _AudioScreenState extends State<AudioScreen> {
   late final String host;
   late final String interviewId;
   late final String mediaUrl;
+  late final String coverPicUrl;
 
   _AudioScreenState({
     required this.title,
     required this.host,
     required this.interviewId,
     required this.mediaUrl,
+    required this.coverPicUrl,
   });
 
   @override
@@ -71,8 +77,8 @@ class _AudioScreenState extends State<AudioScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 70, left: 50, right: 50),
               child: SizedBox(
-                child: Image.asset(
-                  "",
+                child: Image.network(
+                  coverPicUrl,
                   // width: 250,
                   // height: 250,
                   alignment: Alignment.center,

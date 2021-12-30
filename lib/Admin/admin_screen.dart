@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:radio_lnct/Admin/create_interview.dart';
 import 'package:radio_lnct/Admin/create_post.dart';
+import 'package:radio_lnct/Admin/create_video.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({Key? key}) : super(key: key);
@@ -32,6 +33,15 @@ class _AdminScreenState extends State<AdminScreen> {
                     MaterialPageRoute(builder: (context) => CreateInterview()));
               },
               child: Text("Interview"),
+              textColor: Colors.white,
+              color: Color(0xff242a54),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CreateVideo()));
+              },
+              child: Text("Video"),
               textColor: Colors.white,
               color: Color(0xff242a54),
             ),

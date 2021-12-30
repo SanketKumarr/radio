@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:radio_lnct/Admin/create_interview.dart';
 import 'package:radio_lnct/main.dart';
 import 'package:radio_lnct/widgets/live_tab/audio_player.dart';
-import 'package:radio_lnct/widgets/live_tab/audio_screen.dart';
+import 'package:radio_lnct/Admin/Models/interview_model.dart';
 import 'package:radio_lnct/widgets/live_tab/interview_tile.dart';
 import 'package:radio_lnct/widgets/live_tab/most_viewed.dart';
 
