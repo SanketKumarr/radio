@@ -3,92 +3,66 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:image/image.dart' as Im;
+import 'package:radio_lnct/Admin/create_post.dart';
 import 'package:uuid/uuid.dart';
+import 'package:video_player/video_player.dart';
 
+final videoRef = FirebaseFirestore.instance.collection('videos');
+String videoId = Uuid().v4();
 
-final Reference storageRef = FirebaseStorage.instance.ref();
-final postRef = FirebaseFirestore.instance.collection('posts');
-String postId = Uuid().v4();
-
-class CreatePost extends StatefulWidget {
-  const CreatePost({Key? key}) : super(key: key);
+class CreateVideo extends StatefulWidget {
+  const CreateVideo({Key? key}) : super(key: key);
 
   @override
-  _CreatePostState createState() => _CreatePostState();
+  _CreateVideoState createState() => _CreateVideoState();
 }
 
-class _CreatePostState extends State<CreatePost> {
+class _CreateVideoState extends State<CreateVideo> {
+  File? video;
   TextEditingController captionController = TextEditingController();
-  File? image;
+  late VideoPlayerController vidController;
   bool isUploading = false;
-  final ImagePicker _picker = ImagePicker();
-  String postId = Uuid().v4();
-
-  buildSplashScreen() {
-    return Scaffold(
-      body: Center(
-        child: MaterialButton(
-          child: Text("Create post"),
-          textColor: Colors.white,
-          color: Color(0xff242a54),
-          onPressed: () => handleChooseFromGallery(),
-        ),
-      ),
-    );
-  }
+  String videoId = Uuid().v4();
+  late final PlatformFile file;
 
   handleChooseFromGallery() async {
-    // Navigator.pop(context);
-    final image = await _picker.pickImage(
-      source: ImageSource.gallery,
-      imageQuality: 100,
+    final video = await FilePicker.platform.pickFiles(
+      type: FileType.video,
+      // allowedExtensions: ['mp4'],
     );
-    final post = await FilePicker.platform.pickFiles();
-    if (image == null) return;
-    final imageTemp = File(image.path);
+    if (video == null) {
+      return;
+    }
+    file = video.files.first;
+    // openFile(file);
+    final videoTemp = File(file.path as String);
 
     setState(() {
-      this.image = imageTemp;
+      this.video = videoTemp;
     });
-    final path = image.path;
-    final imgName = image.name;
-    print(path);
-    print(imgName);
+    // final path = audio.paths;
+    print('Path: ${file.path}');
   }
 
-  clearImage() {
+  clearVideo() {
     setState(() {
-      image = null;
-    });
-  }
-
-  compressImage() async {
-    final tempDir = await getTemporaryDirectory();
-    final path = tempDir.path;
-    Im.Image? ImageFile = Im.decodeImage(image!.readAsBytesSync());
-    final compressedImageImage = File('$path/img_$postId.jpg')
-      ..writeAsBytesSync(Im.encodeJpg(ImageFile!, quality: 70));
-    setState(() {
-      image = compressedImageImage;
+      video = null;
     });
   }
 
-  uploadImage(imageFile) async {
+  uploadVideo(videoFile) async {
     UploadTask uploadTask =
-        storageRef.child("post_$postId.jpg").putFile(imageFile);
+        storageRef.child("video_$videoId.mp4").putFile(videoFile);
     TaskSnapshot storageSnap = await uploadTask.whenComplete(() {});
     String downloadUrl = await storageSnap.ref.getDownloadURL();
     return downloadUrl;
   }
 
   createPostInFirestore(
-      {required String mediaUrl, required String description}) {
-    postRef.add({
-      "postId": postId,
-      "mediaUrl": mediaUrl,
+      {required String videoUrl, required String description}) {
+    videoRef.add({
+      "videoId": videoId,
+      "videoUrl": videoUrl,
       "description": description,
       "createdAt": FieldValue.serverTimestamp(),
     });
@@ -98,17 +72,16 @@ class _CreatePostState extends State<CreatePost> {
     setState(() {
       isUploading = true;
     });
-    await compressImage();
-    String mediaUrl = await uploadImage(image);
+    String videoUrl = await uploadVideo(video);
     createPostInFirestore(
-      mediaUrl: mediaUrl,
+      videoUrl: videoUrl,
       description: captionController.text,
     );
     captionController.clear();
     setState(() {
-      image = null;
+      video = null;
       isUploading = false;
-      postId = Uuid().v4();
+      videoId = Uuid().v4();
     });
   }
 
@@ -120,7 +93,7 @@ class _CreatePostState extends State<CreatePost> {
           icon: Icon(Icons.arrow_back),
           color: Colors.black,
           onPressed: () {
-            clearImage();
+            clearVideo();
           },
         ),
         title: Text(
@@ -140,13 +113,11 @@ class _CreatePostState extends State<CreatePost> {
               height: 220,
               width: MediaQuery.of(context).size.width * 0.8,
               child: Center(
-                child: Container(
-                  width: 220,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: FileImage(image!),
-                      fit: BoxFit.cover,
-                    ),
+                child: Text(
+                  file.name,
+                  style: TextStyle(
+                    color: Color(0xff242a54),
+                    fontSize: 25,
                   ),
                 ),
               ),
@@ -188,13 +159,23 @@ class _CreatePostState extends State<CreatePost> {
     );
   }
 
+  buildSplashScreen() {
+    return Scaffold(
+      body: Center(
+        child: MaterialButton(
+          child: Text("Create video"),
+          textColor: Colors.white,
+          color: Color(0xff242a54),
+          onPressed: () => handleChooseFromGallery(),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return image == null ? buildSplashScreen() : uploadForm();
-    // return Scaffold(
-    //   body: Center(
-    //     child: Text("welcome"),
-    //   ),
-    // );
+    return video == null ? buildSplashScreen() : uploadForm();
   }
 }
+
+buildSplashScreen() {}
