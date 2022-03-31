@@ -1,6 +1,7 @@
 # radio_lnct
 
-A new Flutter project.
+LNCT Radio club app [User-end]
+{admin-end: https://github.com/SanketKumarr/radio_admin]
 
 ## Getting Started
 
