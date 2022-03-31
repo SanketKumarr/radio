@@ -1,7 +1,8 @@
 # radio_lnct
 
 LNCT Radio club app [User-end]
-{admin-end: https://github.com/SanketKumarr/radio_admin]
+
+[admin-end: https://github.com/SanketKumarr/radio_admin]
 
 ## Getting Started
 
